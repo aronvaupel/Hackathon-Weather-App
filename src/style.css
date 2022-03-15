@@ -3,3 +3,21 @@
 @tailwind utilities;
 
 /* @import "~@geoapify/geocoder-autocomplete/styles/minimal.css"; */
+
+@layer base {
+  .container {
+    @apply max-w-[90%] w-[1200px] bg-white shadow rounded-sm;
+  }
+
+  .detail {
+    @apply flex flex-col items-center flex-grow p-5;
+  }
+
+  .detail .title {
+    @apply text-4xl flex-grow font-bold text-[#777];
+  }
+
+  .detail.value {
+    @apply text-3xl mt-5;
+  }
+}
