@@ -11,21 +11,21 @@
     <h1 class="text-red-800">My Weather App</h1>
     <div class="container">
       <div class="general-information">
-        <div class="status">Enter a location</div>
-        <div class="location"></div>
+        <div class="status" data-status>Enter a location</div>
+        <div class="location" data-location></div>
       </div>
     </div>
     <div class="detail-section">
       <div class="detail">
-        <div class="title">Wind</div>
+        <div class="title" data-wind>Wind</div>
         <div class="value">TBD</div>
       </div>
       <div class="detail">
-        <div class="title">Temperature</div>
+        <div class="title" data-temperature>Temperature</div>
         <div class="value">TBD</div>
       </div>
       <div class="detail">
-        <div class="title">Rain-probability</div>
+        <div class="title" data-percipitation>Percipitation</div>
         <div class="value">TBD</div>
       </div>
     </div>
@@ -33,6 +33,7 @@
       id="autocomplete"
       class="autocomplete-container relative border-2"
       placeholder="Enter location"
+      data-city-search
     ></div>
 
     <script type="module" src="./main.ts"></script>
