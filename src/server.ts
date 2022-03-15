@@ -1,35 +1,25 @@
-const log = console.log;
-log ('something')
-const express = require("express");
+import axios from "axios";
+import express from "express";
+import cors from "cors";
+
+const WEATHER_KEY = "3F3APL3XMWVSVFH7L62P5KNFD"; //process.env.WEATHER_KEY;
 const app = express();
+app.use(express.json());
+app.use(express.static("public"));
+app.use(cors());
 
-// your beautiful code...
+app.get("/", (_req, res) => {
+  res.send("server running");
+});
 
-if (process.env.NODE_ENV === 'production') {
-    app.listen(3000)
-}
-// app.use(express.json());
+app.post("/weather", (req, _res) => {
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${req.body.latitude},${req.body.longitude}?key=${WEATHER_KEY}`;
+  axios({
+    url: url,
+    responseType: "json",
+  }).then((data) => data.data.currently);
+});
 
-export const createViteNodeApp = app;
-/*
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config();
-}
-
-const geoKey:string = process.env.GEO_KEY || '';
-
-const app = express();
-// app.use(express.static(''));
-
-app.get("/", (req: { body: any; }, _res: any)=>{
-    log(req)
- })
-
-app.post("/", (req: { body: any; }, _res: any)=>{
-    log(req.body)
-})
-
-app.listen(4174, ()=>{
-    console.log('node server is running')
-})
-*/
+app.listen(3001, () => {
+  console.log("node server is running");
+});
