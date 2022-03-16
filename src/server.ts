@@ -30,7 +30,7 @@ app.post("/weather", async (req, _res) => {
 //  log('url: ', url)
  await axios.get(url)
  .then((data:any) => {
-   log('temp: ', data.data.currentConditions.temp)
+  //  log('temp: ', data.data.currentConditions.temp)
    results = data.data;
 
   }).catch((err)=>log('ERR: ', err))
@@ -45,8 +45,8 @@ resultsObj.conditions = results.currentConditions.conditions;
 resultsObj.windspeed = results.currentConditions.windspeed;
 resultsObj.description = results.description;
 resultsObj.icon = results.currentConditions.icon;
-log('resultsObj: ', resultsObj);
-
+log('resultsObj[Server]: ', resultsObj);
+_res.send(resultsObj);
 });
 
 app.listen(3001, () => {
