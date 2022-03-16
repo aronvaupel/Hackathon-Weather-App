@@ -13,8 +13,17 @@ app.get("/", (_req, res) => {
   res.send("server running");
 });
 
-let results = '';
-
+let results:any = '';
+const resultsObj = {
+  tempmax: 0,
+  tempmin:0,
+  temp:0,
+  precipprob:0,
+  conditions:'',
+  windspeed:0,
+  description:'',
+  icon:''
+}
 app.post("/weather", async (req, _res) => {
   log('response', req.body)
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${req.body.lat},${req.body.lon}?key=${WEATHER_KEY}`;
@@ -23,10 +32,20 @@ app.post("/weather", async (req, _res) => {
  .then((data:any) => {
    log('temp: ', data.data.currentConditions.temp)
    results = data.data;
+
   }).catch((err)=>log('ERR: ', err))
  
-log('tempmax: ',results.days[0].tempmax) 
-log('tempmin: ',results.days[0].tempmin) 
+// log('tempmax: ',results.days[0].tempmax) 
+// log('tempmin: ',results.days[0].tempmin) 
+resultsObj.temp = results.currentConditions.temp;
+resultsObj.tempmax = results.days[0].tempmax;
+resultsObj.tempmin = results.days[0].tempmin;
+resultsObj.precipprob = results.days[0].humidity;
+resultsObj.conditions = results.currentConditions.conditions;
+resultsObj.windspeed = results.currentConditions.windspeed;
+resultsObj.description = results.description;
+resultsObj.icon = results.currentConditions.icon;
+log('resultsObj: ', resultsObj);
 
 });
 
