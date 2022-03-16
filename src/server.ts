@@ -19,6 +19,7 @@ const resultsObj = {
   tempmin:0,
   temp:0,
   precipprob:'',
+  precip: 0,
   windspeed:0,
   description:'',
   icon:''
@@ -38,13 +39,13 @@ app.post("/weather", async (req, _res) => {
  
 // log('tempmax: ',results.days[0].tempmax) 
 // log('tempmin: ',results.days[0].tempmin) 
+resultsObj.description = results.description;
+resultsObj.windspeed = results.currentConditions.windspeed;
 resultsObj.temp = results.currentConditions.temp;
 resultsObj.tempmax = results.days[0].tempmax;
 resultsObj.tempmin = results.days[0].tempmin;
-// resultsObj.humidity = results.days[0].humidity;
-resultsObj.precipprob = results.currentConditions.conditions; // precipprob taken from conditions key !!
-resultsObj.windspeed = results.currentConditions.windspeed;
-resultsObj.description = results.description;
+resultsObj.precipprob = results.currentConditions.precipprob; // precipprob taken from conditions key !!
+resultsObj.precip = results.currentConditions.precip; // precipprob taken from conditions key !!
 resultsObj.icon = results.currentConditions.icon;
 log('resultsObj[Server]: ', resultsObj);
 _res.send(resultsObj);
@@ -57,8 +58,8 @@ _res.send(resultsObj);
     })
     .catch((err) => log("ERR: ", err));
 
-  log("tempmax: ", results.days[0].tempmax);
-  log("tempmin: ", results.days[0].tempmin);
+  // log("tempmax: ", results.days[0].tempmax);
+  // log("tempmin: ", results.days[0].tempmin);
 });
 
 app.listen(3001, () => {
