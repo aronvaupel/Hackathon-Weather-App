@@ -1,14 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import "~@geoapify/geocoder-autocomplete/styles/minimal.css"; */
+@import "~@geoapify/geocoder-autocomplete/styles/minimal.css";
 
 @layer base {
   .wrapper {
     @apply bg-sunny bg-center bg-no-repeat bg-cover flex justify-center flex-col items-center min-h-screen m-0 p-0 backdrop-filter backdrop-blur-2xl backdrop-brightness-50 backdrop-contrast-200;
   }
   .container {
-    @apply max-w-[90%] w-[1200px] shadow rounded-sm flex flex-col;
+    @apply font-poppins max-w-[90%] w-[1200px] shadow rounded-lg flex flex-col  backdrop-filter  backdrop-blur-md backdrop-contrast-200;
   }
 
   .detail {
@@ -16,10 +16,14 @@
   }
 
   .detail .title {
-    @apply text-4xl flex-grow font-bold;
+    @apply text-xl flex-grow font-bold;
   }
 
   .detail.value {
-    @apply text-3xl mt-5;
+    @apply text-xl mt-5;
+  }
+
+  .geoapify-autocomplete-input {
+    @apply font-poppins text-lg text-black;
   }
 }

@@ -9,7 +9,8 @@ module.exports = {
         snowy: "url('/snowy.webp')",
       },
       fontFamily: {
-        body: ["Poppins"],
+        poppins: ["Poppins"],
+        anton: ["Anton"],
       },
     },
   },
