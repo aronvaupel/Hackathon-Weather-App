@@ -10,7 +10,6 @@ import { GeocoderAutocomplete } from "@geoapify/geocoder-autocomplete";
 
 const GEO_KEY = "ba21a0d4fde441b1a9dceb2df1ead4f1" || ""; //process.env.GEO_KEY//
 
-<<<<<<< HEAD
 function setWeatherData(data:any){ //, place: string) {
   // locationElement.textContent = place;
   statusElement.textContent = data.summary; // weather status from API
@@ -19,7 +18,6 @@ function setWeatherData(data:any){ //, place: string) {
   windElement.textContent = data.windspeed
 }
 
-=======
 //function setWeatherData(data:any){ //, place: string) {
 // locationElement.textContent = place;
 //   statusElement.textContent = data.summary; // weather status from API
@@ -27,7 +25,6 @@ function setWeatherData(data:any){ //, place: string) {
 //   precipitationElement.textContent = `${data.precipProbability * 100}%`
 //   windElement.textContent = data.windSpeed
 // }
->>>>>>> 3b890f4fd873177095414c23874214255b3fc06f
 
 const autocomplete = new GeocoderAutocomplete(
   document.getElementById("autocomplete") as HTMLElement,
@@ -62,7 +59,6 @@ async function sendPost(data: any) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-<<<<<<< HEAD
   }).then(response => response.json())
   .then(data => {
     console.log('Success:', data);
@@ -71,7 +67,6 @@ async function sendPost(data: any) {
   .catch((error) => {
     console.error('Err:', error);
   });
-=======
   })
     .then((response) => response.json())
     .then((data) => {
@@ -80,5 +75,4 @@ async function sendPost(data: any) {
     .catch((error) => {
       console.error("Err:", error);
     });
->>>>>>> 3b890f4fd873177095414c23874214255b3fc06f
 }
