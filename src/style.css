@@ -7,7 +7,7 @@
     @apply bg-sunny transition-all duration-500 ease-in-out bg-center bg-no-repeat bg-cover flex justify-center flex-col items-center min-h-screen m-0 p-0 backdrop-filter backdrop-blur-2xl backdrop-brightness-50 backdrop-contrast-200;
   }
   .container {
-    @apply font-poppins max-w-[90%] w-[1200px] shadow rounded-lg flex flex-col  backdrop-filter  backdrop-blur-md backdrop-contrast-200;
+    @apply font-poppins max-w-[80%] w-[1200px] shadow rounded-lg flex flex-col  backdrop-filter  backdrop-blur-md backdrop-contrast-200;
   }
 
   .detail {
@@ -22,4 +22,22 @@
     @apply text-3xl mt-5 text-center;
   }
 }
+.geoapify-close-button{
+  float : right;
+}
 
+.geoapify-autocomplete-input{
+  min-width: 90%;
+  border: none;
+}
+.geoapify-autocomplete-input:focus-visible{
+    outline: 0px solid #fff;
+}
+.geoapify-autocomplete-items{
+  position: absolute;
+  padding : 15px;
+  width: 100%;
+  left: 0px;
+  background-color : #f3f6f4;
+  border-radius: 0 0 10px 10px;
+}
