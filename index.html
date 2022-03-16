@@ -19,7 +19,7 @@
         My-Weather-App
       </h1>
 
-      <div  class="container">
+      <div class="container">
         <!-- location header-->
         <div class="flex flex-col items-center p-3">
           <div class="text-2xl font-medium mt-3" data-location>
@@ -28,26 +28,29 @@
           <div data-description></div>
         </div>
 
-        <div class="flex flex-col justify-between mt-10">
+        <div class="flex flex-col lg:flex-row justify-between mt-10">
           <div class="detail">
             <div class="title">Wind</div>
-            <div class="value text-3xl"><span data-wind></span> km/h</div>
+            <div class="value"><span data-wind></span> km/h</div>
+            <div>wind-direction:<span data-direction></span>°</div>
           </div>
 
           <div class="detail">
             <div class="title">Temperature</div>
-            <div class="value text-3xl"><span data-temperature></span> °F</div>
-            <div class="minmaxtemp flex justify-evenly">
-              <div class="m-1">min <span data-tempMin></span></div>
-              <div class="m-1">max <span data-tempMax></span></div>
+            <div class="value"><span data-temperature></span> °F</div>
+            <div class="flex justify-evenly">
+              <div class="m-1">min <span data-tempMin></span>°F</div>
+              <div class="m-1">max <span data-tempMax></span>°F</div>
             </div>
           </div>
 
           <div class="detail">
             <div class="title">Percipitation</div>
-            <div>
-              <div class="value text-3xl" data-percipitation>type</div>
-              <div><span data-probability></span> %</div>
+            <div class="flex flex-col justify-evenly">
+              <div class="value" data-percipitation></div>
+              <div>
+                percipitation-probability:<span data-probability></span> %
+              </div>
             </div>
           </div>
         </div>
@@ -55,7 +58,7 @@
         <div class="flex justify-center">
           <div
             id="autocomplete"
-            class="autocomplete-container flex justify-between relative bg-white m-10 text-md rounded-lg p-3 w-4/5"
+            class="autocomplete-container flex flex-col justify-between relative bg-white m-10 text-md rounded-lg p-3 w-4/5"
             data-city-search
           ></div>
         </div>
