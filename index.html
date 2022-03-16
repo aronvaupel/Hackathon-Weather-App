@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="font-body m-12 text-xl font-black">My-Weather-App</h1>
+
+      <div class="container">
+        <!-- location header-->
+        <div class="flex flex-col items-center p-3">
+          <div class="text-lg font-medium mt-3" data-location>
+            Your Location
+          </div>
+        </div>
+
+        <div class="flex justify-between mt-10">
+          <div class="detail">
+            <div class="title" data-wind>Wind</div>
+            <div class="value" data-speed>speed</div>
+          </div>
+
+          <div class="detail">
+            <div class="title" data-temperature>Temperature</div>
+            <div class="value">TBD</div>
+            <div class="minmaxtemp flex justify-evenly">
+              <div class="minimal" data-min>minTemp</div>
+              <div class="maximal" data-max>maxTemp</div>
+            </div>
+          </div>
+
+          <div class="detail">
+            <div class="title" data-percipitation>Percipitation</div>
+            <div>
+              <div class="prop" data-probability>prop</div>
+              <div class="value" data-type>type</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <div
+            id="autocomplete"
+            class="autocomplete-container relative border-2 mt-10 text-3xl rounded-sm p-3 w-1/2"
+            placeholder="Enter location"
+            data-city-search
+          ></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

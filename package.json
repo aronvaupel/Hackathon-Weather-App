@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "vite serve ./src",
+    "start": "vite",
     "build": "tsc && vite build",
     "dev": "vite preview",
     "start:server": "ts-node-dev --respawn --transpile-only --project tsconfig.server.json src/server.ts"
