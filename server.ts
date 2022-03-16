@@ -13,21 +13,22 @@ app.get("/", (_req, res) => {
   res.send("server running");
 });
 
-let results = '';
+let results = "";
 
 app.post("/weather", async (req, _res) => {
-  log('response', req.body)
+  log("response", req.body);
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${req.body.lat},${req.body.lon}?key=${WEATHER_KEY}`;
-//  log('url: ', url)
- await axios.get(url)
- .then((data:any) => {
-   log('temp: ', data.data.currentConditions.temp)
-   results = data.data;
-  }).catch((err)=>log('ERR: ', err))
- 
-log('tempmax: ',results.days[0].tempmax) 
-log('tempmin: ',results.days[0].tempmin) 
+  //  log('url: ', url)
+  await axios
+    .get(url)
+    .then((data: any) => {
+      log("temp: ", data.data.currentConditions.temp);
+      results = data.data;
+    })
+    .catch((err) => log("ERR: ", err));
 
+  log("tempmax: ", results.days[0].tempmax);
+  log("tempmin: ", results.days[0].tempmin);
 });
 
 app.listen(3001, () => {
