@@ -21,6 +21,7 @@ const resultsObj = {
   precipprob:'',
   precip: 0,
   windspeed:0,
+  winddir:0,
   description:'',
   icon:''
 }
@@ -41,6 +42,7 @@ app.post("/weather", async (req, _res) => {
 // log('tempmin: ',results.days[0].tempmin) 
 resultsObj.description = results.description;
 resultsObj.windspeed = results.currentConditions.windspeed;
+resultsObj.winddir = results.currentConditions.winddir;
 resultsObj.temp = results.currentConditions.temp;
 resultsObj.tempmax = results.days[0].tempmax;
 resultsObj.tempmin = results.days[0].tempmin;

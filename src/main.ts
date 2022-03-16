@@ -6,6 +6,7 @@ import { GeocoderAutocomplete } from "@geoapify/geocoder-autocomplete";
 const locationElement = document.querySelector('[data-location]') as HTMLElement;
 const descriptionElement = document.querySelector('[data-description]') as HTMLElement;
 const windElement = document.querySelector('[data-wind]') as HTMLElement;
+const dirElement = document.querySelector('[data-direction]') as HTMLElement;
 const temperatureElement = document.querySelector('[data-temperature]') as HTMLElement;
 const tempMaxElement = document.querySelector('[data-tempMax]') as HTMLElement;
 const tempMinElement = document.querySelector('[data-tempMin]') as HTMLElement;
@@ -13,12 +14,16 @@ const precipitationElement = document.querySelector('[data-percipitation]') as H
 const probabilityElement = document.querySelector('[data-probability]') as HTMLElement;
 const mainBg = document.getElementById('main') as HTMLElement;
 
+// const details = document.querySelectorAll('.detail');
+const txtColor = document.getElementById("text-color") as HTMLElement;
+
 const GEO_KEY = "ba21a0d4fde441b1a9dceb2df1ead4f1" || ""; //process.env.GEO_KEY//
 
 function setWeatherData(data:any){ //, place: string) {
   locationElement.textContent = cityName;
   descriptionElement.textContent = data.description;
   windElement.textContent = data.windspeed;
+  dirElement.textContent = data.winddir;
   temperatureElement.textContent = data.temp;
   tempMaxElement.textContent = data.tempmax; // weather status from API
   tempMinElement.textContent = data.tempmin; // weather status from API
@@ -30,13 +35,21 @@ function setWeatherData(data:any){ //, place: string) {
 }
 
 function changeBgImage(key:string) {
+  // details.forEach((e: any) =>{
+  //   e.style.color = '#000';
+  // })
+  txtColor.style.color = '#000'
   switch (key) {
     case 'snow':
       mainBg.style.backgroundImage = "url('snowy.webp')";
       break;
       case 'rain':
         mainBg.style.backgroundImage = "url('rainy.webp')";
-      
+        txtColor.style.color = '#fff'
+
+        // details.forEach((e: any) =>{
+        //   e.style.color = '#fff';
+        // })
       break;
       case 'clear-day':
         mainBg.style.backgroundImage = "url('sunny.webp')";
