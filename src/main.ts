@@ -16,7 +16,7 @@ function setWeatherData(data:any){ //, place: string) {
   statusElement.textContent = data.summary; // weather status from API
   temperatureElement.textContent = data.temperature;
   precipitationElement.textContent = `${data.precipProbability * 100}%`
-  windElement.textContent = data.windSpeed
+  windElement.textContent = data.windspeed
 }
 
 
@@ -58,6 +58,7 @@ async function sendPost(data: any) {
   }).then(response => response.json())
   .then(data => {
     console.log('Success:', data);
+    setWeatherData(data) // update interface values
   })
   .catch((error) => {
     console.error('Err:', error);
